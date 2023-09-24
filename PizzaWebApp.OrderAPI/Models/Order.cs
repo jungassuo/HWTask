@@ -4,9 +4,8 @@ namespace PizzaWebApp.OrderAPI.Models
 {
     public class Order
     {
-        public int Id { get; set; }
-        public ProductDto Product { get; set; }
-        public ToppingDto Toppings { get; set; }
-        public decimal TotalPrice { get; set; }
+        public OrderHeaderDto OrderHeader { get; set; }
+        public IEnumerable<OrderDetailsDto>? OrderDetails { get; set; }
+        public IEnumerable<OrderToppingsDto>? OrderToppings { get; set; }
     }
 }

@@ -10,7 +10,9 @@ namespace Pizza_Order_Web_App.OrderAPI.Data
 
         }
 
-        public DbSet<Order> Orders { get; set; }
-    
+        public DbSet<OrderHeader> OrderHeaders { get; set; }
+        public DbSet<OrderDetails> OrderDetails { get; set; }
+        public DbSet<OrderToppings> OrderToppings { get; set; }
+
     }
 }

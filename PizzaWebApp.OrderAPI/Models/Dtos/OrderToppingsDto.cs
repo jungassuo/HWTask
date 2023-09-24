@@ -1,6 +1,6 @@
 ﻿namespace PizzaWebApp.OrderAPI.Models.Dtos
 {
-    public class ToppingDto
+    public class OrderToppingsDto
     {
         public int ToppingsId { get; set; }
         public string ToppingName { get; set; }

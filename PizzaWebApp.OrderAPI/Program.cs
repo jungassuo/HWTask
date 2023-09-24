@@ -1,6 +1,9 @@
 
+using AutoMapper;
 using Microsoft.EntityFrameworkCore;
 using Pizza_Order_Web_App.OrderAPI.Data;
+using PizzaWebApp.OrderAPI.Service.IService;
+using PizzaWebApp.OrderAPI.Service;
 using System;
 
 namespace PizzaWebApp.OrderAPI
@@ -13,13 +16,27 @@ namespace PizzaWebApp.OrderAPI
 
             // Add services to the container.
 
-            builder.Services.AddControllers();
+            
             builder.Services.AddDbContext<AppDbContext>(option => {
                 option.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection"));
             });
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+
+            //Mapper configuration
+            IMapper mapper = MappingConfig.RegisterMaps().CreateMapper();
+            builder.Services.AddSingleton(mapper);
+            builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
+            builder.Services.AddScoped<IProductService, ProductService>();
+
+            builder.Services.AddHttpContextAccessor();
+
+            builder.Services.AddHttpClient("Product", u => u.BaseAddress =
+            new Uri(builder.Configuration["ServiceUrls:ProductAPI"]));
+
+            builder.Services.AddControllers();
 
             var app = builder.Build();
 

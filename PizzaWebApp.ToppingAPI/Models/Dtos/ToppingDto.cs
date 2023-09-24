@@ -2,7 +2,7 @@
 {
     public class ToppingDto
     {
-        public int Id { get; set; }
+        public int ToppingId { get; set; }
         public string Name { get; set; }
     }
 }

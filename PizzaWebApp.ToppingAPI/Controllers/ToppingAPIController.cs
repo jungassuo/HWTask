@@ -50,7 +50,7 @@ namespace PizzaWebApp.ToppingAPI.Controllers
 
             try
             {
-                Topping obj = _db.Topping.FirstOrDefault(e => e.Id == id);
+                Topping obj = _db.Topping.FirstOrDefault(e => e.ToppingId == id);
                 _response.Result = _mapper.Map<ToppingDto>(obj);
             }
             catch (Exception e)
@@ -115,7 +115,7 @@ namespace PizzaWebApp.ToppingAPI.Controllers
         {
             try
             {
-                Topping room = _db.Topping.First(u => u.Id == id);
+                Topping room = _db.Topping.First(u => u.ToppingId == id);
                 _db.Topping.Remove(room);
                 _db.SaveChanges();
             }

@@ -52,7 +52,7 @@ namespace PizzaWebApp.ProductAPI.Controllers
 
                 try
                 {
-                    Product obj = _db.Product.FirstOrDefault(e => e.Id == id);
+                    Product obj = _db.Product.FirstOrDefault(e => e.ProductId == id);
                     _response.Result = _mapper.Map<ProductDto>(obj);
                 }
                 catch (Exception e)
@@ -117,7 +117,7 @@ namespace PizzaWebApp.ProductAPI.Controllers
             {
                 try
                 {
-                    Product room = _db.Product.First(u => u.Id == id);
+                    Product room = _db.Product.First(u => u.ProductId == id);
                     _db.Product.Remove(room);
                     _db.SaveChanges();
                 }

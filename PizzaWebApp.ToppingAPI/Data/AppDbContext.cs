@@ -18,47 +18,47 @@ namespace PizzaWebApp.ToppingAPI.Data
 
             modelBuilder.Entity<Topping>().HasData(new Topping
             {
-                Id = 1,
+                ToppingId = 1,
                 Name = "Tomatoes",
             });
             modelBuilder.Entity<Topping>().HasData(new Topping
             {
-                Id = 2,
+                ToppingId = 2,
                 Name = "Broccoli",
             });
             modelBuilder.Entity<Topping>().HasData(new Topping
             {
-                Id = 3,
+                ToppingId = 3,
                 Name = "Red Pepper",
             });
             modelBuilder.Entity<Topping>().HasData(new Topping
             {
-                Id = 4,
+                ToppingId = 4,
                 Name = "Pepperoni",
             });
             modelBuilder.Entity<Topping>().HasData(new Topping
             {
-                Id = 5,
+                ToppingId = 5,
                 Name = "Bacon",
             });
             modelBuilder.Entity<Topping>().HasData(new Topping
             {
-                Id = 6,
+                ToppingId = 6,
                 Name = "Basil",
             });
             modelBuilder.Entity<Topping>().HasData(new Topping
             {
-                Id = 7,
+                ToppingId = 7,
                 Name = "Mushroom",
             });
             modelBuilder.Entity<Topping>().HasData(new Topping
             {
-                Id = 8,
+                ToppingId = 8,
                 Name = "Onion",
             });
             modelBuilder.Entity<Topping>().HasData(new Topping
             {
-                Id = 9,
+                ToppingId = 9,
                 Name = "Extra Cheese",
             });
         }
