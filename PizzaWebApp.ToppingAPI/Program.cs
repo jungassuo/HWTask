@@ -45,6 +45,7 @@ namespace PizzaWebApp.ToppingAPI
 
             app.MapControllers();
 
+            //Automatic database update after any new migration
             ApplyMigration();
 
             app.Run();

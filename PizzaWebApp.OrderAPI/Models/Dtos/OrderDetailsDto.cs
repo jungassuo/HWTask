@@ -12,5 +12,6 @@ namespace PizzaWebApp.OrderAPI.Models.Dtos
         public string PizzaName { get; set; }
         public string Description { get; set; }
         public string Url { get; set; }
+        public IEnumerable<OrderToppingsDto>? OrderToppings { get; set; } = new List<OrderToppingsDto>();
     }
 }

@@ -14,5 +14,7 @@ namespace PizzaWebApp.OrderAPI.Models
         public string PizzaName { get; set; }
         public string Description { get; set; }
         public string Url { get; set; }
+        [NotMapped]
+        public IEnumerable<OrderToppingsDto>? OrderToppings { get; set; }
     }
 }

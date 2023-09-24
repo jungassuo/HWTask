@@ -9,7 +9,6 @@ using PizzaWebApp.Services.ProductAPI.Models.Dto;
 
 namespace PizzaWebApp.ProductAPI.Controllers
 {
-    [EnableCors("CorsPolicy")]
     [Route("api/product")]
     [ApiController]
     public class ProductAPIController : ControllerBase
@@ -61,73 +60,6 @@ namespace PizzaWebApp.ProductAPI.Controllers
                     _response.Message = e.Message;
                 }
                 return _response;
-            }
-
-            [HttpPost]
-            //[Authorize(Roles = "ADMIN")]
-            public ResponseDto Post([FromBody] ProductDto roomdto)
-            {
-
-
-                try
-                {
-                    Product room = _mapper.Map<Product>(roomdto);
-                    _db.Product.Add(room);
-                    _db.SaveChanges();
-
-                    _response.Result = _mapper.Map<ProductDto>(room);
-                }
-                catch (Exception e)
-                {
-                    _response.IsSuccess = false;
-                    _response.Message = e.Message;
-                }
-                return _response;
-            }
-
-
-            [HttpPut]
-            //[Authorize(Roles = "ADMIN")]
-            public ResponseDto Put([FromBody] ProductDto roomdto)
-            {
-
-
-                try
-                {
-                    Product room = _mapper.Map<Product>(roomdto);
-                    _db.Product.Update(room);
-                    _db.SaveChanges();
-
-                    _response.Result = _mapper.Map<ProductDto>(room);
-
-                }
-                catch (Exception e)
-                {
-                    _response.IsSuccess = false;
-                    _response.Message = e.Message;
-                }
-                return _response;
-            }
-
-
-            [HttpDelete]
-            [Route("{id:int}")]
-            //[Authorize(Roles = "ADMIN")]
-            public ResponseDto Delete(int id)
-            {
-                try
-                {
-                    Product room = _db.Product.First(u => u.ProductId == id);
-                    _db.Product.Remove(room);
-                    _db.SaveChanges();
-                }
-                catch (Exception e)
-                {
-                    _response.IsSuccess = false;
-                    _response.Message = e.Message;
-                }
-                return _response;
-            }
-        
+            } 
     }
 }

@@ -2,6 +2,9 @@
 using PizzaWebApp.OrderAPI.Models;
 using PizzaWebApp.OrderAPI.Models.Dtos;
 
+//Mapping configuration class
+//Mapper is used in functions, where api needs to convert data transfer objects (DTOs)
+//DTOs are used to transfer application data between the server and the client
 namespace PizzaWebApp.OrderAPI
 {
     public class MappingConfig

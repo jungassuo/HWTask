@@ -12,7 +12,6 @@ namespace PizzaWebApp.ProductAPI
             var builder = WebApplication.CreateBuilder(args);
 
             // Add services to the container.
-
             builder.Services.AddControllers();
 
             builder.Services.AddDbContext<AppDbContext>(option => {
@@ -39,17 +38,13 @@ namespace PizzaWebApp.ProductAPI
 
             app.UseHttpsRedirection();
 
-            //app.UseMiddleware<AuthenticationMiddleware>();
-
-            //app.UseCors("CorsPolicy");
-
             app.UseAuthorization();
 
             app.UseCors("Cors");
 
-
             app.MapControllers();
 
+            //Automatic database update after any new migration
             ApplyMigration();
 
             app.Run();
